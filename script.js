@@ -33,13 +33,13 @@ function loadTasks() {
       false
     );
     if (todo.completed) li.classList = "checked";
-    li.innerHTML = `${todo.task}<i title="click to delete task" class="fa fa-trash fr pad-trash" onclick="removeTask(this)"></i>`;
+    li.innerHTML = `${todo.task}<i title="click to delete the task" class="fa fa-trash fr pad-trash" onclick="removeTask(this)"></i>`;
     // li.innerHTML = `<input type="checkbox" onclick="taskComplete(this)" class="check" ${task.completed ? "checked" : ""}>
 
     _listTask.insertBefore(li, _listTask.children[0]);
     _task.focus();
-    updateTotaltask();
   });
+  updateTotaltask();
 }
 
 /** ********** Function definitions ********** */
@@ -78,7 +78,7 @@ function addTask() {
 
   // create list item, add innerHTML and append to ul 'listTask'
   const li = document.createElement("li");
-  li.title = "click to (un)complete task";
+  li.title = "click to (un)complete the task";
   // adding event listener while binding the li
   li.addEventListener(
     "click",
@@ -108,20 +108,21 @@ function toggleComplete(taskvalue) {
 }
 
 function removeTask(event) {
+  debugger;
   let tasklist = Array.from(JSON.parse(localStorage.getItem("tasks") || "[]"));
   let taskname = event.parentNode.innerText;
   //debugger;
   if (tasklist.length > 0) {
     tasklist.forEach((todo) => {
-      if (todo.task === taskname) {
+      if (todo.task.trim() === taskname) {
         tasklist.splice(tasklist.indexOf(todo), 1); // IMPORTANT :: delete task from localstorage
+        localStorage.setItem("tasks", JSON.stringify(tasklist));
+        event.parentElement.remove(); // delete LI from UL
+        updateTotaltask();
+        _message.innerText = "`" + taskname + "` deleted succesfully";
+        _message.classList = "clblue";
       }
     });
-    localStorage.setItem("tasks", JSON.stringify(tasklist));
-    event.parentElement.remove(); // delete LI from UL
-    updateTotaltask();
-    _message.innerText = "`" + taskname + "` deleted succesfully";
-    _message.classList = "clblue";
   }
 }
 
