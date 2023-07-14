@@ -1,5 +1,6 @@
 # Todolist.github.io
 ![Todolist homepage](https://github.com/Vbhardwaj27/Todolist.github.io/blob/main/HomePage.png)
+
 This website will allow user to add, remove or mark the task as completed in todo list.
 * At home page , user can enter the task in input box and click on + to add the task in todo list.
 * Number of task added in the todo list is displayed at the bottom of the todo list.
