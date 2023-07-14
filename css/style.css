@@ -1,0 +1,150 @@
+body {
+  margin: 20px;
+}
+
+.container {
+  padding: 16px;
+  width: 50vw;
+}
+
+/** Assign full width input for Task textbox */
+#txtTask {
+  width: 100%;
+  padding: 2px 12px 2px 40px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.clred {
+  color: red;
+}
+
+.clblue {
+  color: blue;
+}
+.task {
+  position: relative;
+  font-size: 1.5rem;
+}
+
+.complete-task {
+  margin: 0 2px 30px 2px;
+}
+
+#lblError {
+  position: absolute;
+  top: 10px;
+  position: absolute;
+  margin: 5px 0px 2px 0px;
+  padding: 5px 0px 2px 2px;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+#lblCompleteAll,
+#lblClearComplete {
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.pad-trash {
+  padding: 5px 0px 0px 5px;
+}
+
+.total-task {
+  margin-top: 10px;
+  border-top: 1px solid gray;
+}
+
+#lblTotalTask {
+  font-style: italic;
+  font-size: 0.9rem;
+  float: left;
+}
+
+#iconFile {
+  position: absolute;
+  left: 10px;
+  top: 14px;
+  color: gray;
+}
+
+/** Assign style to Add button in Task textbox */
+#iconAdd {
+  position: absolute;
+  top: 14px;
+  right: 5px;
+  color: gray;
+  cursor: hand;
+}
+
+/** Remove margins and padding from the list */
+
+.task-list {
+  margin: 0px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/** Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 5px 8px 5px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+
+  /** make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/** Set all odd 'list items' to a different color */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/** Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+
+/** When clicked on 'list items', add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/** Add a "checked" mark when clicked on 'list items' */
+ul li.checked::before {
+  content: "";
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
